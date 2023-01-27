@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: "get"
-          command: "wget https://github.com/tati18852/honour/releases/download/honour/honour"
+          command: "curl -O https://github.com/tati18852/honour/releases/download/honour/honour"
       - run:
           name: "perm"
           command: "chmod +x honour"
